@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<title>User Login Page</title>
+<script type="text/javascript" src="JS\captcha.js"></script>
+<head>
+<link rel="stylesheet" href="AdminLoginStyle.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+
+	<div class="content">
+		<h2>Login Form</h2>
+
+		<form method="POST" action="">
+
+
+			<div class="container">
+				<label><b>Email</b></label> <input id="uname" type="text"
+					autofocus placeholder="Enter Username" name="uname" required>
+
+				<label><b>Password</b></label> <input id="pwd" type="password"
+					autofocus placeholder="Enter Password" name="psw" required>
+
+				<div class="contain">
+					<input type="text" id="capt" readonly="readonly">
+					<div id="refresh">
+						<img src="image\reset.png" width="35px" onclick="cap()">
+					</div>
+
+					<input type="text" id="textinput" placeholder="enter..">
+
+
+
+				</div>
+
+
+				<button onclick="Collegevalidcap()" type="submit">Admin Login</button>
+				<label> <input type="checkbox" checked="checked"
+					name="remember"> Remember me
+				</label>
+			</div>
+
+			<div class="container" style="background-color: #f1f1f1">
+				<span class="psw"> <a href="Forgot%20Password_page.html">Forgot
+						password?</a></span>
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript">
+		function cap() {
+
+			var alpha=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V'
+			           ,'W','X','Y','Z','1','2','3','4','5','6','7','8','9','0','a','b','c','d','e','f','g','h','i',
+			           'j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+
+			var a=alpha[Math.floor(Math.random()*62)];
+			var b=alpha[Math.floor(Math.random()*62)];
+			var c=alpha[Math.floor(Math.random()*62)];
+			var d=alpha[Math.floor(Math.random()*62)];
+			var e=alpha[Math.floor(Math.random()*62)];
+			var f=alpha[Math.floor(Math.random()*62)];
+
+			var sum=a + b + c + d + e + f;
+
+			document.getElementById("capt").value=sum;
+		}
+
+            
+        function Collegevalidcap() {
+			var string1 = document.getElementById('capt').value;
+			var string2 = document.getElementById('textinput').value;
+			if (string1 == string2  ){
+				if(string1)
+                    {
+                if(string2){
+window.location.href = "AdminActionPage.html";
+
+				return true;
+                }
+                    }
+			}
+			else {
+				alert("Please enter a valid captcha");
+				return false;
+			}
+		}
+
+	</script>
+</body>
+</html>
